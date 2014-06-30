@@ -1,0 +1,67 @@
+#! /bin/bash
+# sppinger - Tests the front end web servers of a given SharePoint
+#            system, sending an email if any servers have a front
+#            end, IIS web server down. Each server has a file of the
+#            same name, placed in the same location, and this script
+#            tries to download that file. Any system from which the 
+#            file cannot be downloaded will be flagged, and its IP 
+#            Address emailed to the address provided.
+
+#            -s, SERVERS - An array of server FQDN's or IP Addresses
+#            to test.
+#            -f, FILE - optional - Path of the file attempting
+#            to pull via HTTP. DEFAULT: /_layouts/images/test.png
+#            -e, EMAIL - optional - Email address to receive the
+#            report. DEFAULT: OITPDCommunicationsProduction@va.gov.
+
+#            MODIFICATION NOTES 
+#            Servers: 10.3.37.89, 10.3.37.90, 10.3.37.93
+#            
+
+#*******************************************************************
+# Change 'while' statement to make the server array var optional.
+while getops sfe option
+#*******************************************************************
+# while getops s:fe option
+
+do
+  case "${option}"
+    in
+      s) SERVERS=${OPTARG};;
+      f) FILE=${OPTARG};;
+      e) EMAIL=${OPTARG};;
+    esac
+done
+
+if [FILE]; then
+else
+  FILE="/_layouts/images/test.png"
+fi
+
+if [$EMAIL]; then
+else
+  EMAIL="OITPDCommunicationsProduction@va.gov"
+fi
+
+#*******************************************************************
+# Set the default server list
+SERVERS=(10.3.37.89 10.3.37.90 10.3.37.93)
+#*******************************************************************
+
+for i in ${}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
